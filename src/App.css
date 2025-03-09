@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100..900&family=Poppins:wght@100..900&family=Quicksand:wght@300..700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: start;
+  padding: 10px;
+}
+
+#root {
+  padding: 2rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+p {
+  margin: 2px 0;
+}
+
+/* Container utama */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  min-height: 80%;
+  font-family: 'Poppins', sans-serif;
+  background: #444;
+  border-radius: 15px;
+  color: white;
+  padding: 20px;
+}
+
+.blureffect{
+  filter: blur(8px);
+  transition: filter 0.3s;
+}
+
+/* Background efek glowing */
+.glow-border {
+  position: absolute;
+  z-index: -1;
+  inset: -4px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  aspect-ratio: 1/1;
+  top: 50%;
+  left: 50%;
+  min-width: 150%;
+  min-height: 150%;
+  background-image: conic-gradient(
+          hsl(0, 100%, 50%),
+          hsl(30, 100%, 50%),
+          hsl(60, 100%, 50%),
+          hsl(90, 100%, 50%),
+          hsl(120, 100%, 50%),
+          hsl(150, 100%, 50%),
+          hsl(180, 100%, 50%),
+          hsl(210, 100%, 50%),
+          hsl(240, 100%, 60%),
+          hsl(270, 100%, 50%),
+          hsl(300, 100%, 50%),
+          hsl(330, 100%, 50%),
+          hsl(360, 100%, 50%)
+  );
+  animation: rotateBorder 4s linear infinite;
+  transform-origin: 0% 0%;
+  transform: rotate(0deg) translate(-50%, -50%);
+  filter: blur(8px);
+}
+
+/* Animasi rotasi */
+@keyframes rotateBorder {
+  from {
+    transform: rotate(0deg) translate(-50%, -50%);
+  }
+  to {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+}
+
+
+
+.content {
+  position: relative;
+  background: #1a1a1a;
+  padding: 10px;
+  border-radius: 10px;
+
+}
+
+/* Ringkasan status */
+.status-summary {
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Grid untuk menampilkan cluster-box */
+.cluster-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: start;
+}
+
+/* Kotak kecil untuk tiap cluster */
+.cluster-box {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  background: #242424;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  transition: 0.3s ease-in-out;
+}
+
+/* Efek hover pada cluster-box */
+.cluster-box:hover {
+  background: #03ff00;
+  transform: scale(1.1);
+}
+
+/* Tooltip */
+.cluster-info {
+  display: none;
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 250px;
+  background: rgba(0, 0, 0, 0.9);
+  font-size: 12px;
+  border-radius: 8px;
+  text-align: left;
+  border: 1px solid white;
+  color: white;
+  padding: 10px;
+  white-space: normal;
+  line-height: 1.4;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Saat cluster-box di-hover, tooltip muncul */
+.cluster-box:hover .cluster-info {
+  display: block;
+}
+
+/* Styling daftar shard */
+.shard-list {
+  margin-top: 1px;
+  padding: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.shard-item {
+
+}
+
