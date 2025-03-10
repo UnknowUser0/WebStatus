@@ -1,4 +1,4 @@
-// src/types.ts (misalnya)
+// src/types.ts
 
 export interface Shard {
     shardId: number;

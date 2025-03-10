@@ -33,7 +33,6 @@ p {
   margin: 2px 0;
 }
 
-/* Container utama */
 .container {
   position: relative;
   width: 100%;
@@ -51,7 +50,6 @@ p {
   transition: filter 0.3s;
 }
 
-/* Background efek glowing */
 .glow-border {
   position: absolute;
   z-index: -1;
@@ -89,7 +87,7 @@ p {
   filter: blur(8px);
 }
 
-/* Animasi rotasi */
+
 @keyframes rotateBorder {
   from {
     transform: rotate(0deg) translate(-50%, -50%);
@@ -109,7 +107,6 @@ p {
 
 }
 
-/* Ringkasan status */
 .status-summary {
   margin-bottom: 20px;
   background: rgba(255, 255, 255, 0.1);
@@ -117,7 +114,7 @@ p {
   border-radius: 5px;
 }
 
-/* Grid untuk menampilkan cluster-box */
+
 .cluster-grid {
   display: flex;
   flex-wrap: wrap;
@@ -125,7 +122,7 @@ p {
   justify-content: start;
 }
 
-/* Kotak kecil untuk tiap cluster */
+
 .cluster-box {
   position: relative;
   width: 50px;
@@ -141,13 +138,13 @@ p {
   transition: 0.3s ease-in-out;
 }
 
-/* Efek hover pada cluster-box */
+
 .cluster-box:hover {
   background: #03ff00;
   transform: scale(1.1);
 }
 
-/* Tooltip */
+
 .cluster-info {
   display: none;
   position: absolute;
@@ -168,12 +165,11 @@ p {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Saat cluster-box di-hover, tooltip muncul */
+
 .cluster-box:hover .cluster-info {
   display: block;
 }
 
-/* Styling daftar shard */
 .shard-list {
   margin-top: 1px;
   padding: 1px;

@@ -3,14 +3,14 @@ import "./App.css";
 import { BotData } from "./types";
 import { formatUptimeDHMS, formatUptimeHM } from "./utils/formatTime.ts";
 
-const API_URL = "http://192.168.20.108:3000/status";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
     const [botData, setBotData] = useState<BotData | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<boolean>(false);
 
-    // Fungsi untuk mengambil data dari API
     const fetchBotData = useCallback(async () => {
         try {
             const response = await fetch(API_URL);
@@ -27,7 +27,6 @@ function App() {
         }
     }, []);
 
-    // useEffect untuk memanggil data pertama kali & set interval
     useEffect(() => {
         fetchBotData();
         const interval = setInterval(fetchBotData, 1000);
@@ -38,7 +37,6 @@ function App() {
         <body>
         <div className="container">
             <div className="glow-border blureffect"></div>
-
             <h1>Bot Status</h1>
 
             {loading ? (
@@ -58,13 +56,12 @@ function App() {
 
                     <div className="cluster-grid">
                         {botData.cluster.map((cluster) => {
-                            // Menentukan warna berdasarkan status dan latency
-                            let clusterColor = "#03ff00"; // Default warna putih
+                            let clusterColor = "#03ff00";
 
                             if (cluster.status.toLowerCase() === "offline") {
-                                clusterColor = "red"; // Jika offline, warna merah
+                                clusterColor = "red";
                             } else if (cluster.avgLatency > 300) {
-                                clusterColor = "yellow"; // Jika latency di atas 300ms, warna kuning
+                                clusterColor = "yellow";
                             }
 
                             return (
@@ -93,7 +90,7 @@ function App() {
                     <p>No data available.</p>
                 </div>
             )}
-            </div>
+        </div>
         </body>
     );
 }
